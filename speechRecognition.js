@@ -39,13 +39,11 @@ startButton.onclick = () => {
     startButton.classList="btn btn-danger"
     startButton.innerText="עצור הקלטה"
     speechRecognition.start();
-    mediaRecorder.start();
   }
   else{
     startButton.classList="btn btn-success"
     startButton.innerText="התחל הקלטה"
     speechRecognition.stop();  
-    mediaRecorder.stop();
   }
 };
 
