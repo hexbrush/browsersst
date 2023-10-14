@@ -1,5 +1,6 @@
+var statusElement = document.querySelector("#status");
+
 if (!("webkitSpeechRecognition" in window)) {
-  var statusElement = document.querySelector("#status");
   statusElement.innerText = "זיהוי דיבור אינו זמין בדפדפן זה"
   statusElement.style.display = "block";
 }
