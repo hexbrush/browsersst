@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <title>המרת דיבור לטקסט</title>
+  </head>
+
+  <body class="container pt-5 bg-dark">
+    
+    <h1 class="text-light">💬 המרת דיבור לטקסט</h1>
+    
+    <p class="text-light">המרת דיבור בעברית לטקסט ללא הגבלת זמן וללא העלאת ההקלטה לענן. ההקלטה וזיהוי הדיבור מתבצעים מקומית.</p>
+    
+    <div class="mt-4">
+      <button class="btn btn-success" id="recordingButton">התחל הקלטה</button>
+      <p id="status" class="lead mt-3 text-light" style="display: none">מקליט...</p>
+    </div>
+    
+    <div class="mt-4" id="div_language" style="display:none">
+      <h2 class="mb-3 text-light">Select Language</h2>
+      <select class="form-select bg-secondary text-light" id="select_language" onchange="updateCountry()"></select>
+      <select class="form-select bg-secondary text-light mt-2" id="select_dialect"></select>
+    </div>
+    
+    <h2 class="mt-4 text-light"></h2>
+    
+    <div class="p-3" style="border: 1px solid gray; min-height:100px; border-radius: 8px;">
+      <span id="final" class="text-light"></span>
+      <span id="interim" class="text-secondary"></span>
+    </div>
+    
+    <div class="mt-4"></div>
+
+    <button id="copyButton" type="button" class="btn btn-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6ZM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1H2Z"></path>
+      </svg>
+      העתק
+    </button>
+    <button id="downloadButton" type="button" class="btn btn-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+      </svg>
+      הורד טקסט
+    </button>
+
+    <div id="copyAlert" class="alert alert-success fixed-bottom text-center" id="alert" style="display:none;">
+      הועתק!
+    </div>
+      
+  </body>
+  <script src="./speechRecognition.js"></script>
+  <script src="./language.js"></script>
+</html>
